@@ -1,0 +1,6 @@
+com\springbootjpa\init\DataInit.class
+com\springbootjpa\dao\UserDAO.class
+com\springbootjpa\entity\User.class
+com\springbootjpa\SpringBootJpa.class
+com\springbootjpa\SwaggerConfig.class
+com\springbootjpa\MainController.class
