@@ -1,6 +1,10 @@
+com\springboot\jpa\exception\ResourceNotFoundException.class
 com\springbootjpa\init\DataInit.class
-com\springbootjpa\dao\UserDAO.class
-com\springbootjpa\entity\User.class
+com\springbootjpa\entity\Address.class
 com\springbootjpa\SpringBootJpa.class
 com\springbootjpa\SwaggerConfig.class
-com\springbootjpa\MainController.class
+com\springbootjpa\dao\AddressDAO.class
+com\springbootjpa\AddressController.class
+com\springbootjpa\UserController.class
+com\springbootjpa\dao\UserDAO.class
+com\springbootjpa\entity\User.class

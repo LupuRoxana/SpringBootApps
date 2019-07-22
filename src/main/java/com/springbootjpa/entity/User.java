@@ -1,31 +1,35 @@
 package com.springbootjpa.entity;
 
-import java.util.Date;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
  
 @Entity
 @Table(name = "USER")
 public class User {
  
     @Id
-    @GeneratedValue
-    @Column(name = "Id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
  
-    @Column(name = "Full_Name", length = 64, nullable = false)
+    @NotNull
+    @Size(max = 100)
+    @Column(unique = true)
     private String fullName;
  
-    @Temporal(TemporalType.DATE)
-    @Column(name = "Date_Of_Birth", nullable = false)
-    private Date dateOfBirth;
- 
+     
     public Long getId() {
         return id;
     }
@@ -42,12 +46,18 @@ public class User {
         this.fullName = fullName;
     }
  
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
- 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private Set<Address> address = new HashSet<>();
+
+
+	public Set<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(Set<Address> address) {
+		this.address = address;
+	}
  
 }

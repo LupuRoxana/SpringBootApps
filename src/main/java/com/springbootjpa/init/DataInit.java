@@ -1,23 +1,18 @@
 package com.springbootjpa.init;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.springbootjpa.dao.UserDAO;
+import com.springbootjpa.entity.Address;
 import com.springbootjpa.entity.User;
  
 @Component
 public class DataInit implements ApplicationRunner {
  
     private UserDAO UserDAO;
- 
-    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
  
     @Autowired
     public DataInit(UserDAO UserDAO) {
@@ -30,21 +25,27 @@ public class DataInit implements ApplicationRunner {
     	long count = UserDAO.count();
  
         if (count == 0) {
-            User p1 = new User();
+        	
+            User p1 = new User(); 
+            p1.setFullName("John Snow");
  
-            p1.setFullName("John");
- 
-            Date d1 = df.parse("1980-12-20");
-            p1.setDateOfBirth(d1);
-            //
-            User p2 = new User();
- 
-            p2.setFullName("Smith");
-            Date d2 = df.parse("1985-11-11");
-            p2.setDateOfBirth(d2);
- 
+            User p2 = new User(); 
+            p2.setFullName("Will Smith");
+
+            Address address1 = new Address();
+            Address address2 = new Address();
+            
+            address1.setText("Deva, Strada Visului, Nr 14");
+            address2.setText("Timisoara, Strada Visului, Nr 22");
+            
+            address1.setUser(p1);
+            address2.setUser(p2);
+            
+            p1.getAddress().add(address1);
+            p1.getAddress().add(address2);
+            
             UserDAO.save(p1);
-            UserDAO.save(p2);
+
         }
  
     }
