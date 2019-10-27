@@ -40,42 +40,5 @@ public class AddressController {
         }).orElseThrow(() -> new ResourceNotFoundException("UserId " + userId + " not found"));
     }
     
-//    @GetMapping("/users/{userId}/address")
-//    public Page<Address> getAllAddressByuserId(@PathVariable (value = "userId") Long userId,
-//                                                Pageable pageable) {
-//        return AddressRepository.findByUserId(userId, pageable);
-//    }
-//
-//    @PostMapping("/users/{userId}/address")
-//    public Address createddress(@PathVariable (value = "userId") Long userId,
-//                                 @Valid @RequestBody Address address) {
-//        return UserRepository.findById(userId).map(user -> {
-//        	address.setUser(user);
-//            return AddressDAO.save(address);
-//        }).orElseThrow(() -> new ResourceNotFoundException("userId " + userId + " not found"));
-//    }
-//
-//    @PutMapping("/users/{userId}/address/{addressId}")
-//    public Address updateAddress(@PathVariable (value = "userId") Long userId,
-//                                 @PathVariable (value = "addressId") Long addressId,
-//                                 @Valid @RequestBody Address addressRequest) {
-//        if(!UserRepository.existsById(userId)) {
-//            throw new ResourceNotFoundException("userId " + userId + " not found");
-//        }
-//
-//        return AddressRepository.findById(addressId).map(address -> {
-//            address.setText(addressRequest.getText());
-//            return AddressDAO.save(address);
-//        }).orElseThrow(() -> new ResourceNotFoundException("addressId " + addressId + "not found"));
-//    }
-//
-//    @DeleteMapping("/users/{userId}/address/{addressId}")
-//    public ResponseEntity<?> deleteAddress(@PathVariable (value = "userId") Long userId,
-//                              @PathVariable (value = "addressId") Long addressId) {
-//        return AddressRepository.findByIdAndUserId(addressId, userId).map(address -> {
-//        	AddressRepository.delete(address);
-//            return ResponseEntity.ok().build();
-//        }).orElseThrow(() -> new ResourceNotFoundException("Address not found with id " + addressId + " and userId " + userId));
-//    }
 }
 

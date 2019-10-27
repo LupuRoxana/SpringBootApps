@@ -16,15 +16,6 @@ public class SpringBootJpa {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootJpa.class, args);
 		
-//		User user = new User();
-//		user.setFullName("POPESCU");
-//		user.setId((long) 137325442);
-//		
-//		UserRepository user2 = null;
-//		//user2.createUserByIdAndName((long)1243252342, "Ionescu");
-//		
-//		System.out.println(user);
-//		System.out.println(user2);
 	}
 
 }

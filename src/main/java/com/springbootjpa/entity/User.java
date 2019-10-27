@@ -83,18 +83,4 @@ public class User {
 		this.ocupation = ocupation;
 	}
 	
-//    @OneToMany(cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY,
-//            mappedBy = "user")
-//    private Set<Address> address = new HashSet<>();
-//
-//
-//	public Set<Address> getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Set<Address> address) {
-//		this.address = address;
-//	}
- 
 }

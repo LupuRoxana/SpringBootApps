@@ -26,14 +26,6 @@ public class DataInit implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         
-    	long count = userRepository.count();
- 
-        if (count == 0) {
-        	
-      
-
-        }
- 
     }
      
 }
