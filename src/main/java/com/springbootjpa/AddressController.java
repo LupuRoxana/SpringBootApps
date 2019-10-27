@@ -25,13 +25,13 @@ public class AddressController {
     @Autowired
     private UserRepository userRepository;
     
-    @GetMapping("/users/{userId}/comments")
+    @GetMapping("/users/{userId}/address")
     public Page<Address> getAllAddressByUserId(@PathVariable (value = "userId") Long userId,
                                                 Pageable pageable) {
         return addressRepository.findByUserId(userId, pageable);
     }
 
-    @PostMapping("/users/{userId}/comments")
+    @PostMapping("/users/{userId}/address")
     public Address createAddress(@PathVariable (value = "userId") Long userId,
                                  @Valid @RequestBody Address address) {
         return userRepository.findById(userId).map(user -> {
