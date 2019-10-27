@@ -27,9 +27,22 @@ public class User {
     @NotNull
     @Size(max = 100)
     @Column(unique = true)
-    private String fullName;
+    private String lastName;
  
+	@NotNull
+    @Size(max = 100)
+    @Column(unique = true)
+    private String firstName;
      
+    @NotNull
+    @Column(unique = true)
+    private String age;  
+    
+    @NotNull
+    @Size(max = 100)
+    @Column(unique = true)
+    private String ocupation;
+    
     public Long getId() {
         return id;
     }
@@ -37,27 +50,51 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
- 
-    public String getFullName() {
-        return fullName;
-    }
- 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
- 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "user")
-    private Set<Address> address = new HashSet<>();
-
-
-	public Set<Address> getAddress() {
-		return address;
+    
+    public String getLastName() {
+		return lastName;
 	}
 
-	public void setAddress(Set<Address> address) {
-		this.address = address;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getOcupation() {
+		return ocupation;
+	}
+
+	public void setOcupation(String ocupation) {
+		this.ocupation = ocupation;
+	}
+	
+//    @OneToMany(cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY,
+//            mappedBy = "user")
+//    private Set<Address> address = new HashSet<>();
+//
+//
+//	public Set<Address> getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Set<Address> address) {
+//		this.address = address;
+//	}
  
 }
